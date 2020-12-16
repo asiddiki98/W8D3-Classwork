@@ -18,5 +18,30 @@ Array.prototype.uniq = function(){
 };
 
 Array.prototype.twoSum = function() {
-    
-}
+    let sums = [];
+
+    this.forEach((el1,i)=> {
+        this.forEach((el2,j) =>{
+            if ((j > i) && ( el1+el2 === 0 ) ){
+               sums.push([i,j]); 
+            }
+        });
+    });
+    return sums;  
+};
+
+
+Array.prototype.transpose = function() {
+    let transposed = [];
+
+    this.forEach((row, r) =>{
+        let temp = [];
+        this.forEach((col, c)=>{
+            temp.push(this[c][r]);
+
+        });
+        transposed.push(temp);
+    });
+    return transposed;
+};
+
